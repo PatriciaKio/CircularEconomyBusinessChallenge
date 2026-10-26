@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular Economy Business Challenge</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#eef6f1;
+    margin:0;
+    color:#222;
+}
+
+header{
+    background:#0c6c4f;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.value{
+    font-size:28px;
+    font-weight:bold;
+    color:#0c6c4f;
+}
+
+.game-area{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+@media(max-width:900px){
+.game-area{
+grid-template-columns:1fr;
+}
+}
+
+button{
+    background:#0c6c4f;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+background:#09543d;
+}
+
+select{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+.question{
+font-size:20px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.feedback{
+margin-top:15px;
+padding:10px;
+border-radius:8px;
+}
+
+.correct{
+background:#d4edda;
+}
+
+.incorrect{
+background:#f8d7da;
+}
+
+h2{
+color:#0c6c4f;
+}
+
+.progress{
+background:#ddd;
+height:20px;
+border-radius:20px;
+overflow:hidden;
+}
+
+.bar{
+height:20px;
+width:0%;
+background:#1fa463;
+}
+
+footer{
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+
+.event-box{
+background:#fff7d6;
+padding:10px;
+border-radius:8px;
+margin-top:10px;
+}
+
+.leaderboard-entry{
+padding:5px;
+border-bottom:1px solid #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>♻ Circular Economy Business Challenge</h1>
+<p>Build profitable circular businesses while reducing waste.</p>
+</header>
+
+<div class="container">
+
+<div class="dashboard">
+
+<div class="card">
+<h3>Revenue</h3>
+<div class="value" id="revenue">$0</div>
+</div>
+
+<div class="card">
+<h3>Circularity</h3>
+<div class="value" id="circularity">0</div>
+</div>
+
+<div class="card">
+<h3>Innovation</h3>
+<div class="value" id="innovation">0</div>
+</div>
+
+<div class="card">
+<h3>Environment</h3>
+<div class="value" id="environment">0</div>
+</div>
+
+</div>
+
+<div class="game-area">
+
+<div class="card">
+
+<h2>Waste-to-Product Match</h2>
+
+<div class="question" id="materialQuestion"></div>
+
+<select id="answerSelect"></select>
+
+<button onclick="checkAnswer()">Submit</button>
+
+<div id="feedback"></div
